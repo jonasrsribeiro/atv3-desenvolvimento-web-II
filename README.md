@@ -31,8 +31,8 @@ npm install
 
 ### Passo 3: Configurar o banco de dados
 
-- Crie um banco de dados MySQL.
-- Renomeie o arquivo `.env.example` para `.env` e preencha as informações de conexão do banco de dados no arquivo.
+- Tendo o MySQL instalado, é necessário alterar a senha do Banco no arquivo "conexao" na pasta DB.
+- O sistema criará o Banco de Dados e as Tabelas automaticamente.
 
 ### Passo 4: Iniciar o servidor
 
@@ -60,10 +60,3 @@ A partir desse ponto, você poderá cadastrar funcionários, visualizar a lista 
 - MySQL
 - Sequelize
 
-## Contribuindo
-
-Sinta-se à vontade para contribuir com o projeto. Faça um fork do repositório, faça suas modificações e envie um pull request. Agradecemos suas contribuições!
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT.
