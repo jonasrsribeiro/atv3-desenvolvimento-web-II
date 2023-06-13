@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a>TechStay Innovations</a></li>
+        <li><a href="/">Cadastrar Funcionário</a></li>
+        <li><a href="/listar">Visualizar Funcionários</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <form action="/cadastrar" method="POST">
+      <h3>Cadastre um funcionário</h3>
+      <label for="codigo">Código:</label>
+      <input type="text" id="codigo" name="codigo">
+
+      <label for="horas">Horas trabalhadas no mês:</label>
+      <input type="text" id="horas" name="horas">
+
+      <label for="salario-minimo">Salário mínimo:</label>
+      <input type="text" id="salario" name="salario">
+
+      <label for="turno">Turno de trabalho:</label>
+      <select id="turno" name="turno">
+        <option value="M">M (Matutino)</option>
+        <option value="V">V (Vespertino)</option>
+        <option value="N">N (Noturno)</option>
+      </select>
+
+      <label for="categoria">Categoria:</label>
+      <select id="categoria" name="categoria">
+        <option value="F">F (Funcionário)</option>
+        <option value="G">G (Gerente)</option>
+      </select>
+
+      <input type="submit" value="Cadastrar">
+    </form>
+
+    {{#if errorMessage}}
+    <div class="error-message">{{errorMessage}}</div>
+    {{/if}}
+
+    {{#if successMessage}}
+    <div class="success-message">{{successMessage}}</div>
+    {{/if}}
+  </main>
+
+  <footer>
+    <p>Rodapé da página</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Atualizar Funcionário</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a>TechStay Innovations</a></li>
+                <li><a href="/">Cadastrar Funcionário</a></li>
+                <li><a href="/listar">Visualizar Funcionários</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/atualizar/{{funcionario.dataValues.id}}" method="POST">
+            <h3>Atualize um funcionário</h3>
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" value="{{funcionario.dataValues.codigo}}">
+
+            <label for="horas">Horas trabalhadas no mês:</label>
+            <input type="text" id="horas" name="horas" value="{{funcionario.dataValues.horas_trabalhadas}}">
+
+            <label for="salario-minimo">Salário mínimo:</label>
+            <input type="text" id="salario" name="salario" value="{{funcionario.dataValues.salario_minimo}}">
+
+            <label for="turno">Turno de trabalho:</label>
+            <select id="turno" name="turno">
+                <option value="M" {{#if (equal funcionario.dataValues.turno "M" )}}selected{{/if}}>M (Matutino)</option>
+                <option value="V" {{#if (equal funcionario.dataValues.turno "V" )}}selected{{/if}}>V (Vespertino)
+                </option>
+                <option value="N" {{#if (equal funcionario.dataValues.turno "N" )}}selected{{/if}}>N (Noturno)</option>
+            </select>
+
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria">
+                <option value="F" {{#if (equal funcionario.dataValues.categoria "F" )}}selected{{/if}}>F (Funcionario)
+                </option>
+                <option value="G" {{#if (equal funcionario.dataValues.categoria "G" )}}selected{{/if}}>G (Gerente)
+                </option>
+            </select>
+
+
+            <input type="submit" value="Atualizar">
+        </form>
+
+        {{#if errorMessage}}
+        <div class="error-message">{{errorMessage}}</div>
+        {{/if}}
+
+        {{#if successMessage}}
+        <div class="success-message">{{successMessage}}</div>
+        {{/if}}
+    </main>
+
+    <footer>
+        <p>Rodapé da página</p>
+    </footer>
+</body>
+
+</html>

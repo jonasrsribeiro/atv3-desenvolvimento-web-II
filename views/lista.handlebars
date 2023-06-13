@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+        // Função para exibir o alerta de confirmação ao clicar no botão "Excluir"
+        function confirmarExclusao(id) {
+            if (confirm("Deseja mesmo excluir o funcionário?")) {
+                window.location.href = "/apagar/" + id;
+                window.location.reload();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a>TechStay Innovations</a></li>
+                <li><a href="/">Cadastrar Funcionário</a></li>
+                <li><a href="/listar">Visualizar Funcionários</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h3>Lista de Funcionários</h3>
+
+        {{#if funcionarios}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Horas Trabalhadas</th>
+                    <th>Valor Hora Trabalhada</th>
+                    <th>Salário Inicial</th>
+                    <th>Auxílio Alimentação</th>
+                    <th>Salário Final</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each funcionarios}}
+                {{#dataValues}}
+                <tr>
+                    <td>{{codigo}}</td>
+                    <td>{{horas_trabalhadas}}</td>
+                    <td>{{valor_hora_trabalhada}}</td>
+                    <td>{{salario_inicial}}</td>
+                    <td>{{auxilio_alimentacao}}</td>
+                    <td>{{salario_final}}</td>
+                    <td><a class="editar-button" href="/editar/{{id}}">Editar</a></td>
+                    <td><a class="excluir-button" onclick="confirmarExclusao('{{id}}')">Excluir</a></td>
+                </tr>
+                {{/dataValues}}
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+    </main>
+
+    <footer>
+        <p>Rodapé da página</p>
+    </footer>
+</body>
+
+</html>
